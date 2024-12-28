@@ -17,6 +17,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Pizzamat, Pizza Automat, Pommes Automat für den perfekten Snack",
   description: "Frische Pizza auf Knopfdruck: Pizza Automat liefert Ihnen in Minuten köstliche, heiße Pizzen. Schnell, bequem und authentisch italienisch",
+  icons: "./favicon.ico",
   openGraph:{
     title: "Pizzamat, Pizza Automat, Pommes Automat für den perfekten Snack",
     description: "Frische Pizza auf Knopfdruck: Pizza Automat liefert Ihnen in Minuten köstliche, heiße Pizzen. Schnell, bequem und authentisch italienisch",
