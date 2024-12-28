@@ -43,7 +43,7 @@ const PizzaAutomatSection = () => {
   ];
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-6 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white" />
       <div className="container relative mx-auto px-4">
         <motion.div 
@@ -69,7 +69,7 @@ const PizzaAutomatSection = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
+                className="group relative bg-white rounded-2xl p-6  hover:shadow-sm transition-all duration-300"
               >
                 <div className={`absolute inset-0 bg-gradient-to-r ${feature.gradient} opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-300`} />
                 <div className="relative flex gap-4">
@@ -115,7 +115,7 @@ const PizzaAutomatSection = () => {
             <Image
               src="/pizzam.png"
               alt="Pizza Automat Machine"
-              className="relative rounded-2xl shadow-lg object-cover"
+              className="relative rounded-2xl  object-cover"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               priority

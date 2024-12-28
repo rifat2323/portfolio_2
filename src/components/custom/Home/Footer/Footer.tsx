@@ -1,17 +1,10 @@
-"use client"
+'use client'
+
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Facebook, 
-  Instagram, 
-  Linkedin, 
-  Youtube, 
-  MapPin, 
-  Phone, 
-  Mail 
-} from 'lucide-react';
-import { Separator } from '@/components/ui/separator';
+import { Facebook, Instagram, Linkedin, Youtube, MapPin, Phone, Mail } from 'lucide-react';
 import Image from 'next/image'
+import Link from 'next/link';
 
 const Footer = () => {
   const socialLinks = [
@@ -21,96 +14,115 @@ const Footer = () => {
     { icon: <Youtube className="w-5 h-5" />, href: "#", label: "YouTube" }
   ];
 
+  const contactInfo = [
+    { icon: <MapPin className="w-5 h-5" />, content: "Güldenstr. 9, 86343 Königsbrunn", href: "https://goo.gl/maps/your-address" },
+    { icon: <Phone className="w-5 h-5" />, content: "+49 821 20969113", href: "tel:+4982120969113" },
+    { icon: <Mail className="w-5 h-5" />, content: "info@eravend.com", href: "mailto:info@eravend.com" }
+  ];
+
   return (
-    <footer className="bg-slate-50 py-12 px-4">
-      <motion.div 
-        className="max-w-6xl mx-auto"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-      >
-        <div className="grid md:grid-cols-2 gap-8 items-center">
+    <footer className="bg-white border-t border-gray-200 py-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 items-start">
           {/* Logo and Social Links */}
-          <div className="space-y-6">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-            >
-              <div className="flex items-center gap-2">
+          <motion.div
+            className="space-y-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <Link href="/" className="inline-block group">
+              <div className="flex items-center gap-3">
                 <Image 
                   src="/footer.webp" 
                   alt="Der Pizzamat Logo" 
-                  className="h-12"
-                  width={100}
-                  height={100}
+                  className="h-16 w-auto"
+                  width={64}
+                  height={64}
                 />
-                <span className="font-bold text-xl text-slate-800">DER PIZZAMAT</span>
+                <div>
+                  <h2 className="font-bold text-2xl text-gray-800 group-hover:text-orange-500 transition-colors">DER PIZZAMAT</h2>
+                  <p className="text-sm text-gray-600 mt-1">HERSTELLUNG & VERTRIEB</p>
+                </div>
               </div>
-              <p className="text-sm text-slate-600 mt-2">HERSTELLUNG & VERTRIEB</p>
-            </motion.div>
+            </Link>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-              className="flex gap-4"
-            >
+            <div className="flex gap-4">
               {socialLinks.map((social, index) => (
-                <a
+                <motion.a
                   key={index}
                   href={social.href}
-                  className="bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700 transition-colors"
+                  className="text-gray-600 hover:text-orange-500 transition-colors"
                   aria-label={social.label}
+                  whileHover={{ y: -3 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   {social.icon}
-                </a>
+                </motion.a>
               ))}
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
 
           {/* Contact Information */}
           <motion.div 
-            className="space-y-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
+            className="space-y-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h3 className="font-medium text-lg text-slate-800">EraVend GmbH & Co. KG</h3>
-            <div className="space-y-3">
-              <div className="flex items-center gap-2 text-slate-600">
-                <MapPin className="w-4 h-4 text-blue-600" />
-                <span>Güldenstr. 9, 86343 Königsbrunn</span>
-              </div>
-              <div className="flex items-center gap-2 text-slate-600">
-                <Phone className="w-4 h-4 text-blue-600" />
-                <a href="tel:+4982120969113" className="hover:text-blue-600 transition-colors">
-                  +49 821 20969113
-                </a>
-              </div>
-              <div className="flex items-center gap-2 text-slate-600">
-                <Mail className="w-4 h-4 text-blue-600" />
-                <a href="mailto:info@eravend.com" className="hover:text-blue-600 transition-colors">
-                  info@eravend.com
-                </a>
-              </div>
+            <h3 className="font-semibold text-xl text-gray-800">Contact Us</h3>
+            <div className="space-y-4">
+              {contactInfo.map((item, index) => (
+                <motion.a
+                  key={index}
+                  href={item.href}
+                  className="flex items-center gap-3 text-gray-600 hover:text-orange-500 transition-colors group"
+                  whileHover={{ x: 3 }}
+                >
+                  <span className="text-orange-500 group-hover:text-orange-600 transition-colors">{item.icon}</span>
+                  <span>{item.content}</span>
+                </motion.a>
+              ))}
             </div>
+          </motion.div>
+
+          {/* Newsletter Signup */}
+          <motion.div
+            className="space-y-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <h3 className="font-semibold text-xl text-gray-800">Stay Updated</h3>
+            <p className="text-gray-600">Get the latest updates on our delicious pizzas!</p>
+            <form className="space-y-3">
+              <input 
+                type="email" 
+                placeholder="Your email address" 
+                className="w-full px-4 py-2 rounded-md border border-gray-300 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+              />
+              <button 
+                type="submit"
+                className="w-full bg-orange-500 text-white py-2 rounded-md hover:bg-orange-600 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+              >
+                Subscribe
+              </button>
+            </form>
           </motion.div>
         </div>
 
-        <Separator className="my-8" />
-
         <motion.div 
-          className="text-center text-sm text-slate-500"
+          className="mt-12 pt-8 border-t border-gray-200 text-center text-sm text-gray-600"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
+          transition={{ delay: 0.6 }}
         >
           © {new Date().getFullYear()} DER PIZZAMAT. All rights reserved.
         </motion.div>
-      </motion.div>
+      </div>
     </footer>
   );
 };
 
 export default Footer;
+

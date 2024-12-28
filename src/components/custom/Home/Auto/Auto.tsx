@@ -31,7 +31,7 @@ const PizzaAutomatSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-8 bg-white">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -48,7 +48,7 @@ const PizzaAutomatSection = () => {
                 alt="Pizza Automat"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover rounded-2xl shadow-lg"
+                className="object-cover rounded-2xl"
                 priority
               />
             </div>
@@ -79,7 +79,7 @@ const PizzaAutomatSection = () => {
                 <div
                   key={index}
                 
-                  className="group bg-gray-50 rounded-xl p-6 hover:bg-white hover:shadow-md transition-all duration-300 group"
+                  className="group bg-gray-50 rounded-xl p-6 hover:bg-white hover:shadow-sm transition-all duration-300 group"
                 >
                   <div className="flex items-start gap-4">
                     <motion.div initial={{filter:"blur(10px)", opacity:0}} whileInView={{filter:"blur(0px)",opacity:1}} viewport={{ once: true,amount: 0.2 }}

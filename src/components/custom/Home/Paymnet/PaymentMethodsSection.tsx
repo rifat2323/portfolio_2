@@ -29,7 +29,7 @@ const PaymentMethodsSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-6 bg-white">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -55,7 +55,7 @@ const PaymentMethodsSection = () => {
             <div
               key={index}
             
-              className="group relative bg-gray-50 rounded-xl p-6 hover:bg-white hover:shadow-lg transition-all duration-300"
+              className="group relative bg-gray-50 rounded-xl p-6 hover:bg-white hover:shadow-sm transition-all duration-300"
             >
               <div className="absolute inset-0 bg-gradient-to-b from-orange-500/5 to-transparent rounded-xl transition-opacity duration-300 opacity-0 group-hover:opacity-100" />
               <div className="relative">

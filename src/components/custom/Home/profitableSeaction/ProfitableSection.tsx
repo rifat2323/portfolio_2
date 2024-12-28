@@ -9,7 +9,7 @@ const ProfitableSection = () => {
  
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 py-16 px-4">
+    <div className="w-full  bg-gradient-to-br from-slate-50 to-slate-100 py-6 px-4">
       <motion.div 
         className="max-w-6xl mx-auto"
         initial={{ opacity: 0 }}
@@ -35,7 +35,7 @@ const ProfitableSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <motion.div initial={{ filter:"blur(4px)" }} whileInView={{ filter:"blur(0px)" }} viewport={{once:true, amount:0.2}} transition={{duration:0.3}} >
-            <Card className="h-full hover:shadow-lg transition-shadow">
+            <Card className="h-full shadow-none hover:shadow-sm">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <PieChart className="h-5 w-5 text-blue-500" />
@@ -51,7 +51,7 @@ const ProfitableSection = () => {
           </motion.div>
 
           <motion.div initial={{ filter:"blur(4px)" }} whileInView={{ filter:"blur(0px)" }} viewport={{once:true, amount:0.2}} transition={{duration:0.3}}>
-            <Card className="h-full hover:shadow-lg transition-shadow">
+            <Card className="h-full shadow-none hover:shadow-sm">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <DollarSign className="h-5 w-5 text-green-500" />
@@ -67,7 +67,7 @@ const ProfitableSection = () => {
           </motion.div>
 
           <motion.div initial={{ filter:"blur(4px)" }} whileInView={{ filter:"blur(0px)" }} viewport={{once:true, amount:0.2}} transition={{duration:0.3}}>
-            <Card className="h-full hover:shadow-lg transition-shadow">
+            <Card className="h-full shadow-none hover:shadow-sm">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <TrendingUp className="h-5 w-5 text-purple-500" />

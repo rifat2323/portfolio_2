@@ -53,7 +53,7 @@ const Sales = () => {
     <div className="min-h-screen bg-gradient-to-b from-orange-50 to-red-50">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -74,7 +74,7 @@ const Sales = () => {
       </section>
 
       {/* Features Grid */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-8 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
@@ -90,9 +90,9 @@ const Sales = () => {
               <div
                 key={index}
               
-                className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 p-6 flex flex-col items-center text-center group"
+                className="bg-white rounded-lg cursor-pointer  hover:shadow-sm transition-all duration-300 p-6 flex flex-col items-center text-center group"
               >
-                <motion.div initial={{filter:"blur(10px)"}} whileInView={{filter:"blur(0px)"}} transition={{duration:0.4,delay:index*0.1}} viewport={{once:true,amount:0.4}} className="text-orange-500 mb-4 group-hover:scale-x-105">
+                <motion.div initial={{filter:"blur(10px)"}} whileInView={{filter:"blur(0px)"}} transition={{duration:0.4,delay:index*0.1}} viewport={{once:true,amount:0.4}} className="text-orange-500 mb-4 group-hover:scale-110 transition-all">
                   {feature.icon}
                   </motion.div>
                 <motion.h3 initial={{filter:"blur(10px)"}} whileInView={{filter:"blur(0px)"}} transition={{duration:0.3,delay:index*0.1}} viewport={{once:true,amount:0.4}} className="text-lg font-semibold mb-2">{feature.title}</motion.h3>

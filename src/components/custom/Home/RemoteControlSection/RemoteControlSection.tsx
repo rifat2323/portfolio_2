@@ -46,7 +46,7 @@ const RemoteControlSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-6 bg-white">
       <div className="container mx-auto px-4">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -127,7 +127,7 @@ const RemoteControlSection = () => {
             <Image
               src="/pizzam.png"
               alt="Pizzamat Machine Interface"
-              className="rounded-2xl shadow-lg object-cover"
+              className="rounded-2xl object-cover"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               priority

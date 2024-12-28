@@ -33,7 +33,7 @@ const ModelsSection = () => {
   ];
 
   return (
-    <section className="w-full bg-gradient-to-b from-white to-orange-50 py-16">
+    <section className="w-full bg-gradient-to-b from-white to-orange-50  pt-8">
       <div className="container mx-auto px-4">
         <motion.h2 
           className="text-3xl md:text-4xl font-bold mb-12 text-center"
@@ -75,8 +75,8 @@ const ModelsSection = () => {
                 <CardContent className="p-6">
                   <div className="grid grid-cols-3 gap-4">
                     {model.specs.map((spec, idx) => (
-                      <div key={idx} className="flex flex-col items-center text-center">
-                        <div className="text-orange-500 mb-2">{spec.icon}</div>
+                      <div key={idx} className=" group flex flex-col items-center text-center">
+                        <div className="text-orange-500 group-hover:-translate-y-full transition-all duration-300 mb-2">{spec.icon}</div>
                         <p className="text-lg font-semibold">{spec.value}</p>
                         <p className="text-xs text-gray-600">{spec.label}</p>
                       </div>

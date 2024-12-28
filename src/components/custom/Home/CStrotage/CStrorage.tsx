@@ -30,7 +30,7 @@ const CStorage = () => {
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-6 bg-gray-50">
       <div className="container mx-auto px-4">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -58,7 +58,7 @@ const CStorage = () => {
             <Image
               src="/pizzam.png"
               alt="Pizza Machine Cold Storage Unit"
-              className="rounded-lg shadow-md w-full"
+              className="rounded-lg  w-full"
               width={600}
               height={400}
             />
@@ -75,7 +75,7 @@ const CStorage = () => {
                   viewport={{ once: true,amount:0.4 }}
                   className="flex items-start bg-white p-4 rounded-lg shadow-sm group"
                 >
-                  <div className="flex-shrink-0 mr-3 text-orange-500 group-hover:translate-y-3  group-hover:scale-110 transform transition-all">
+                  <div className="flex-shrink-0 mr-3 text-orange-500  duration-300  group-hover:scale-110  transition-all">
                     {feature.icon}
                   </div>
                   <div>

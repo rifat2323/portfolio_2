@@ -9,7 +9,7 @@ import Image from 'next/image';
 const HeroSection = () => {
   return (
     <section className="w-full min-h-screen bg-gradient-to-br from-orange-50 to-white overflow-hidden">
-      <div className="container mx-auto px-4 py-12 lg:py-24">
+      <div className="container mx-auto px-4 pt-10 ">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
           {/* Left Content */}
           <motion.div 
@@ -69,29 +69,28 @@ const HeroSection = () => {
             transition={{ duration: 0.6 }}
           >
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-orange-100 rounded-full blur-3xl opacity-30"></div>
-            <motion.div 
+            <div 
               className="relative z-10"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: 'spring', stiffness: 300 }}
+             
             >
               <Image
                 src="/pizzam.png"
                 alt="Pizza Automat Machine"
-                className="rounded-3xl shadow-2xl"
+                className="rounded-3xl "
                 width={600}
                 height={600}
               />
               <FloatingBadge 
                 icon={<Star className="text-yellow-500 h-6 w-6" />}
                 text="Premium Quality"
-                className="absolute -right-4 top-1/4"
+                className="absolute -right-4 top-1/4 rotate-2"
               />
               <FloatingBadge 
                 icon={<Clock className="text-orange-500 h-6 w-6" />}
                 text="24/7 Service"
-                className="absolute -left-4 bottom-1/4"
+                className="absolute -left-4 bottom-1/4 rotate-2"
               />
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>

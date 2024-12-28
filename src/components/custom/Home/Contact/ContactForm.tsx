@@ -12,7 +12,7 @@ import { Label } from '@/components/ui/label';
 
 const ContactForm = () => {
   return (
-    <section className="py-16 px-4 bg-gradient-to-br from-white to-gray-50">
+    <section className="py-6 px-4 bg-gradient-to-br from-white to-gray-50">
       <div className="max-w-xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

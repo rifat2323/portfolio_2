@@ -7,7 +7,7 @@ import { Card, CardContent } from '@/components/ui/card';
 
 const Brief = () => {
   return (
-    <section className="w-full py-24 bg-gradient-to-br from-white to-orange-50">
+    <section className="w-full py-7 bg-gradient-to-br from-white to-orange-50">
       <div className="container mx-auto px-4">
         <motion.div 
           className="max-w-4xl mx-auto"
@@ -25,7 +25,7 @@ const Brief = () => {
             <span className="text-orange-600"> PizzaAutomat</span>
           </motion.h2>
 
-          <Card className="bg-white shadow-xl rounded-2xl overflow-hidden">
+          <Card className="bg-white shadow-none  rounded-xl overflow-hidden">
             <CardContent className="p-8">
               <div className="flex flex-col md:flex-row gap-8 items-center">
                 <div className="flex-1 space-y-6">
