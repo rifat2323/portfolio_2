@@ -1,48 +1,75 @@
+'use client'
+
 import React from 'react';
-import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { Clock, Pizza, Star, Zap } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+
 const Brief = () => {
   return (
-    <div className="w-full py-16 bg-gradient-to-br from-white to-gray-50">
-      <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between gap-12">
-        {/* Left content */}
-        <div className="flex-1 space-y-6">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 leading-tight">
-            Pizza{ "Automat's"}
-            <span className="text-red-600"> industry-standard </span>
-            technology provides reliable 24/7 operation.
-          </h2>
-          <div className="w-24 h-1 bg-red-600 rounded-full"></div>
-          <Image
-            src="/pizza1.png"
-            alt="Pizza Automat"
-            className="object-contain hover:scale-105 transition-transform duration-300 rounded-lg"
-            width={100}
-            height={100}
-          />
-        </div>
+    <section className="w-full py-24 bg-gradient-to-br from-white to-orange-50">
+      <div className="container mx-auto px-4">
+        <motion.div 
+          className="max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-gray-800 leading-tight text-center mb-12"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            Experience the Future of Pizza with
+            <span className="text-orange-600"> PizzaAutomat</span>
+          </motion.h2>
 
-        {/* Right content */}
-        <div className="flex-1 space-y-6">
-          <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <p className="text-lg lg:text-xl text-gray-700 leading-relaxed">
-              Designed to serve pizzas of outstanding restaurant quality, this unique machine, the Pizzamat | Pizza Automat, is characterized by its ability to cook perfect pizzas in just 2 minutes - matching the quality of top restaurants.
-            </p>
-            <div className="mt-6 flex items-center space-x-4">
-              <div className="flex items-center">
-                <span className="text-red-600 text-4xl font-bold">2</span>
-                <span className="ml-2 text-gray-600">Minutes<br/>Cook Time</span>
+          <Card className="bg-white shadow-xl rounded-2xl overflow-hidden">
+            <CardContent className="p-8">
+              <div className="flex flex-col md:flex-row gap-8 items-center">
+                <div className="flex-1 space-y-6">
+                  <p className="text-lg text-gray-700 leading-relaxed">
+                    Designed to serve pizzas of outstanding restaurant quality, PizzaAutomat is characterized by its ability to cook perfect pizzas in just 2 minutes - matching the quality of top restaurants.
+                  </p>
+                  <div className="grid grid-cols-2 gap-4">
+                    <FeatureCard icon={<Clock className="w-6 h-6" />} value="2 min" label="Cook Time" />
+                    <FeatureCard icon={<Pizza className="w-6 h-6" />} value="24/7" label="Operation" />
+                    <FeatureCard icon={<Star className="w-6 h-6" />} value="Top" label="Quality" />
+                    <FeatureCard icon={<Zap className="w-6 h-6" />} value="Fast" label="Service" />
+                  </div>
+                </div>
+                <div className="flex-shrink-0">
+                  <motion.div 
+                    className="bg-orange-100 w-48 h-48 rounded-full flex items-center justify-center shadow-lg"
+                    whileHover={{ scale: 1.05, rotate: 5 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <Pizza className="w-24 h-24 text-orange-600" />
+                  </motion.div>
+                </div>
               </div>
-              <div className="h-12 w-px bg-gray-300"></div>
-              <div className="flex items-center">
-                <span className="text-red-600 text-4xl font-bold">24/7</span>
-                <span className="ml-2 text-gray-600">Available<br/>Operation</span>
-              </div>
-            </div>
-          </div>
-        </div>
+            </CardContent>
+          </Card>
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 
+const FeatureCard = ({ icon, value, label }: { icon: React.ReactNode, value: string, label: string }) => (
+  <motion.div 
+    className="flex items-center flex-col sm:flex-row space-x-3 bg-orange-50 p-3 rounded-xl"
+    whileHover={{ scale: 1.03 }}
+    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+  >
+    <div className="text-orange-600 bg-white p-2 rounded-full">{icon}</div>
+    <div>
+      <span className="block text-lg font-bold text-gray-800">{value}</span>
+      <span className="text-sm text-gray-600">{label}</span>
+    </div>
+  </motion.div>
+);
+
 export default Brief;
+
