@@ -29,9 +29,9 @@ const Brief = () => {
             <CardContent className="p-8">
               <div className="flex flex-col md:flex-row gap-8 items-center">
                 <div className="flex-1 space-y-6">
-                  <p className="text-lg text-gray-700 leading-relaxed">
+                  <motion.p           initial={{ filter:"blur(4px)" }} whileInView={{ filter:"blur(0px)" }} viewport={{once:true, amount:0.2}} transition={{duration:0.3}} className="text-lg text-gray-700 leading-relaxed">
                     Designed to serve pizzas of outstanding restaurant quality, PizzaAutomat is characterized by its ability to cook perfect pizzas in just 2 minutes - matching the quality of top restaurants.
-                  </p>
+                  </motion.p>
                   <div className="grid grid-cols-2 gap-4">
                     <FeatureCard icon={<Clock className="w-6 h-6" />} value="2 min" label="Cook Time" />
                     <FeatureCard icon={<Pizza className="w-6 h-6" />} value="24/7" label="Operation" />

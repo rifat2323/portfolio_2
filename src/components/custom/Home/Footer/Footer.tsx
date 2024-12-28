@@ -39,7 +39,7 @@ const Footer = () => {
             >
               <div className="flex items-center gap-2">
                 <Image 
-                  src="/image1.png" 
+                  src="/footer.webp" 
                   alt="Der Pizzamat Logo" 
                   className="h-12"
                   width={100}

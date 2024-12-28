@@ -1,128 +1,107 @@
+'use client'
+
 import React from 'react';
-import {
-  AlarmClock,
-  CreditCard,
-  Microwave,
-  Pizza,
-  Plug,
-  Settings,
-  ThermometerSun,
-  Umbrella,
-} from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { motion } from 'motion/react';
+import { AlarmClock, CreditCard, Microwave, Pizza, Plug, Settings, ThermometerSun, Umbrella } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+
+const features = [
+  {
+    title: 'Flexible Installation',
+    description: 'Indoor or outdoor placement options',
+    icon: <Umbrella size={24} />,
+  },
+  {
+    title: 'Massive Variety',
+    description: '72 pizzas with 250+ recipe options',
+    icon: <Pizza size={24} />,
+  },
+  {
+    title: 'Temperature Control',
+    description: 'Serve both hot and cold options',
+    icon: <ThermometerSun size={24} />,
+  },
+  {
+    title: '24/7 Service',
+    description: 'Round-the-clock operation',
+    icon: <AlarmClock size={24} />,
+  },
+  {
+    title: 'Universal Payments',
+    description: 'Accept all payment methods',
+    icon: <CreditCard size={24} />,
+  },
+  {
+    title: 'Restaurant-Grade Oven',
+    description: 'Professional cooking quality',
+    icon: <Microwave size={24} />,
+  },
+  {
+    title: 'Smart Connected',
+    description: 'Real-time monitoring and management',
+    icon: <Plug size={24} />,
+  },
+  {
+    title: 'Complete Control',
+    description: 'Manage from our powerful app',
+    icon: <Settings size={24} />,
+  },
+];
 
 const Sales = () => {
-  const features = [
-    {
-      title: 'Flexible Installation',
-      description: 'Indoor or outdoor placement options available',
-      icon: <Umbrella size={24} />,
-      color: 'bg-gradient-to-br from-blue-50 to-blue-100',
-      textColor: 'text-blue-700',
-      borderColor: 'border-blue-200',
-    },
-    {
-      title: 'Massive Variety',
-      description: 'Store up to 72 pizzas with 250+ recipe options',
-      icon: <Pizza size={24} />,
-      color: 'bg-gradient-to-br from-green-50 to-green-100',
-      textColor: 'text-green-700',
-      borderColor: 'border-green-200',
-    },
-    {
-      title: 'Temperature Control',
-      description: 'Serve both hot and cold options perfectly',
-      icon: <ThermometerSun size={24} />,
-      color: 'bg-gradient-to-br from-red-50 to-red-100',
-      textColor: 'text-red-700',
-      borderColor: 'border-red-200',
-    },
-    {
-      title: '24/7 Service',
-      description: 'Never miss a sale with round-the-clock operation',
-      icon: <AlarmClock size={24} />,
-      color: 'bg-gradient-to-br from-amber-50 to-amber-100',
-      textColor: 'text-amber-700',
-      borderColor: 'border-amber-200',
-    },
-    {
-      title: 'Universal Payments',
-      description: 'Accept all payment methods including crypto',
-      icon: <CreditCard size={24} />,
-      color: 'bg-gradient-to-br from-purple-50 to-purple-100',
-      textColor: 'text-purple-700',
-      borderColor: 'border-purple-200',
-    },
-    {
-      title: 'Restaurant-Grade Oven',
-      description: 'Professional cooking quality in every slice',
-      icon: <Microwave size={24} />,
-      color: 'bg-gradient-to-br from-orange-50 to-orange-100',
-      textColor: 'text-orange-700',
-      borderColor: 'border-orange-200',
-    },
-    {
-      title: 'Smart Connected',
-      description: 'Real-time monitoring and management',
-      icon: <Plug size={24} />,
-      color: 'bg-gradient-to-br from-cyan-50 to-cyan-100',
-      textColor: 'text-cyan-700',
-      borderColor: 'border-cyan-200',
-    },
-    {
-      title: 'Complete Control',
-      description: 'Manage everything from our powerful app',
-      icon: <Settings size={24} />,
-      color: 'bg-gradient-to-br from-pink-50 to-pink-100',
-      textColor: 'text-pink-700',
-      borderColor: 'border-pink-200',
-    },
-  ];
-
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
+    <div className="min-h-screen bg-gradient-to-b from-orange-50 to-red-50">
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-white">
-        <div className="absolute inset-0 bg-gradient-to-r from-orange-100 to-red-100 opacity-20" />
-        <div className="relative px-6 py-16 sm:px-8 md:px-12 lg:px-16">
-          <div className="mx-auto max-w-4xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
-              <span className="block">The Future of</span>
-              <span className="block text-orange-600">Pizza Vending</span>
+      <section className="relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-center"
+          >
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+              The Future of <span className="text-orange-600">Pizza Vending</span>
             </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
-              Experience the revolution in automated pizza service. Our smart vending machines 
-              deliver restaurant-quality pizzas 24/7, bringing convenience and quality together.
+            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+              Experience the revolution in automated pizza service. Restaurant-quality pizzas available 24/7.
             </p>
-          </div>
+            <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">
+              Learn More
+            </Button>
+          </motion.div>
         </div>
-      </div>
+      </section>
 
       {/* Features Grid */}
-      <div className="py-12 px-6 sm:px-8 md:px-12 lg:px-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {features.map((feature, index) => (
-            <Card
-              key={index}
-              className={`group transition-all duration-300 hover:scale-105 ${feature.color} border-2 ${feature.borderColor} shadow-lg hover:shadow-xl`}
-            >
-              <CardHeader>
-                <div className={`flex items-center justify-center h-12 w-12 rounded-lg ${feature.textColor} mx-auto`}>
+      <section className="py-24 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.h2
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true, amount: 0.4 }}
+            className="text-3xl font-bold text-center mb-12 text-gray-900"
+          >
+            Why Choose Our Pizza Vending Machines?
+          </motion.h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+              
+                className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 p-6 flex flex-col items-center text-center group"
+              >
+                <motion.div initial={{filter:"blur(10px)"}} whileInView={{filter:"blur(0px)"}} transition={{duration:0.4,delay:index*0.1}} viewport={{once:true,amount:0.4}} className="text-orange-500 mb-4 group-hover:scale-x-105">
                   {feature.icon}
-                </div>
-                <CardTitle className={`text-center text-lg font-semibold mt-4 ${feature.textColor}`}>
-                  {feature.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className={`text-center text-sm ${feature.textColor} opacity-90`}>
-                  {feature.description}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
+                  </motion.div>
+                <motion.h3 initial={{filter:"blur(10px)"}} whileInView={{filter:"blur(0px)"}} transition={{duration:0.3,delay:index*0.1}} viewport={{once:true,amount:0.4}} className="text-lg font-semibold mb-2">{feature.title}</motion.h3>
+                <motion.h3 initial={{filter:"blur(10px)"}} whileInView={{filter:"blur(0px)"}} transition={{duration:0.3,delay:index*0.1}} viewport={{once:true,amount:0.4}} className="text-gray-600 text-sm">{feature.description}</motion.h3>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };

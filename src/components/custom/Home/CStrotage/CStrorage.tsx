@@ -1,47 +1,37 @@
-"use client"
+'use client'
+
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { 
-  Snowflake, 
- 
-  AlertTriangle,
-  Leaf,
-  QrCode
-} from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
+import { Snowflake, AlertTriangle, Leaf, QrCode } from 'lucide-react';
 
 const CStorage = () => {
   const features = [
     {
-      icon: <Snowflake className="w-6 h-6" />,
+      icon: <Snowflake className="w-5 h-5" />,
       title: "Temperature Control",
-      description: "Regulated between -5 and 5°C with adjustable settings",
-      color: "text-blue-500"
+      description: "-5 to 5°C, adjustable",
     },
     {
-      icon: <AlertTriangle className="w-6 h-6" />,
+      icon: <AlertTriangle className="w-5 h-5" />,
       title: "Safety Monitoring",
-      description: "Alarm system for temperature limit monitoring",
-      color: "text-amber-500"
+      description: "Real-time temperature alerts",
     },
     {
-      icon: <Leaf className="w-6 h-6" />,
+      icon: <Leaf className="w-5 h-5" />,
       title: "Eco-Friendly",
-      description: "R290 gas refrigeration unit meeting environmental standards",
-      color: "text-green-500"
+      description: "R290 gas refrigeration",
     },
     {
-      icon: <QrCode className="w-6 h-6" />,
+      icon: <QrCode className="w-5 h-5" />,
       title: "Smart Inventory",
-      description: "Advanced expiration date tracking system",
-      color: "text-purple-500"
+      description: "Expiration date tracking",
     }
   ];
 
   return (
-    <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-blue-50">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-16 bg-gray-50">
+      <div className="container mx-auto px-4">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -49,79 +39,68 @@ const CStorage = () => {
           viewport={{ once: true,amount:0.4 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">
             Smart Cold Storage Technology
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Advanced temperature control and inventory management system
+            Advanced temperature control and inventory management for our pizza machines
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true,amount:0.4 }}
             className="relative"
           >
-            <div className="absolute -inset-4 bg-gradient-to-r from-blue-100 to-purple-100 rounded-3xl blur-2xl opacity-30" />
             <Image
               src="/pizzam.png"
-              alt="Cold Storage Unit"
-              className="relative rounded-2xl shadow-2xl w-full object-cover"
-              width={800}
-              height={700}
+              alt="Pizza Machine Cold Storage Unit"
+              className="rounded-lg shadow-md w-full"
+              width={600}
+              height={400}
             />
           </motion.div>
 
-          <div className="space-y-8">
-            <motion.div 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true,amount:0.4 }}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-4"
-            >
+          <div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {features.map((feature, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true,amount:0.4 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
+                  viewport={{ once: true,amount:0.4 }}
+                  className="flex items-start bg-white p-4 rounded-lg shadow-sm group"
                 >
-                  <Card className="group hover:shadow-lg transition-all duration-300">
-                    <CardContent className="p-6">
-                      <div className={`${feature.color} mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                        {feature.icon}
-                      </div>
-                      <h3 className="font-semibold text-gray-900 mb-2">
-                        {feature.title}
-                      </h3>
-                      <p className="text-gray-600 text-sm">
-                        {feature.description}
-                      </p>
-                    </CardContent>
-                  </Card>
+                  <div className="flex-shrink-0 mr-3 text-orange-500 group-hover:translate-y-3  group-hover:scale-110 transform transition-all">
+                    {feature.icon}
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-800 mb-1 text-sm">
+                      {feature.title}
+                    </h3>
+                    <p className="text-gray-600 text-xs">
+                      {feature.description}
+                    </p>
+                  </div>
                 </motion.div>
               ))}
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true,amount:0.4 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="bg-white p-6 rounded-xl shadow-lg"
+            <div
+             
+              className="mt-8 p-5 bg-white rounded-lg shadow-sm border border-gray-200"
             >
-              <h3 className="font-semibold text-gray-900 mb-3">
+              <motion.h3 initial={{ opacity: 0, filter: "blur(5px)" }} whileInView={{ opacity: 1, filter: "blur(0px)" }} transition={{ duration: 0.3 }} viewport={{ once: true,amount:0.2 }}  className="font-semibold text-gray-800 mb-2">
                 Smart Waste Reduction
-              </h3>
-              <p className="text-gray-600">
-                Our innovative technology automatically detects and prioritizes pizzas approaching expiration, effectively reducing food waste through intelligent inventory management.
-              </p>
-            </motion.div>
+              </motion.h3>
+              <motion.p initial={{ opacity: 0, filter: "blur(5px)" }} whileInView={{ opacity: 1, filter: "blur(0px)" }} transition={{ duration: 0.4 }} viewport={{ once: true,amount:0.2 }} className="text-gray-600 text-sm">
+                Our system prioritizes pizzas nearing expiration, reducing food waste through intelligent inventory management. This ensures that every pizza served is at its freshest, maintaining the highest quality for our customers.
+              </motion.p>
+            </div>
           </div>
         </div>
       </div>
@@ -130,3 +109,4 @@ const CStorage = () => {
 };
 
 export default CStorage;
+

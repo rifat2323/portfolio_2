@@ -13,6 +13,9 @@ import PizzaAutomatSectionUser from "@/components/custom/Home/PizzaAutomatSectio
 import ProfitableSection from "@/components/custom/Home/profitableSeaction/ProfitableSection";
 import RemoteControlSection from "@/components/custom/Home/RemoteControlSection/RemoteControlSection";
 import Sales from "@/components/custom/Home/Sales/Sales";
+import Loader from "@/components/custom/Loader";
+import { Suspense } from "react";
+
 
 
 export default function Home() {
@@ -21,46 +24,77 @@ export default function Home() {
       <section id="hero_station" className=" w-full">
       <HeroSection/>
       </section>
-      <section id="Brif" className=" w-full mt-3">
+      <section id="Brif" className=" w-full ">
+        <Suspense fallback={<Loader/>}>
+
       <Brief/>
+        </Suspense>
       </section>
-      <section id="Models" className=" w-full mt-3">
+      <section id="Models" className=" w-full ">
+        <Suspense fallback={<Loader/>}>
 
       <ModelsSection/>
+        </Suspense>
+
       </section>
-      <section id="Models" className=" w-full mt-3">
+      <section id="Card" className=" w-full ">
+      <Suspense fallback={<Loader/>}>
 
       <Sales/>
+        </Suspense>
+     
       </section>
-      <section id="Automated" className=" w-full mt-3">
+      <section id="Automated" className=" w-full ">
+      <Suspense fallback={<Loader/>}>
 
       <PizzaAutomatSection/>
+     </Suspense>
+    
       </section>
-      <section id="storage" className=" w-full mt-3">
+      <section id="storage" className=" w-full ">
+      <Suspense fallback={<Loader/>}>
 
-     <CStorage/>
+      <CStorage/>
+     </Suspense>
+    
       </section>
-      <section id="control" className=" w-full mt-3">
+      <section id="control" className=" w-full ">
+      <Suspense fallback={<Loader/>}>
 
-     <RemoteControlSection/>
+      <RemoteControlSection/>
+     </Suspense>
+     
       </section>
-      <section id="payment" className=" w-full mt-3">
+      <section id="payment" className=" w-full ">
+      <Suspense fallback={<Loader/>}>
 
-     <PaymentMethodsSection/>
+      <PaymentMethodsSection/>
+     </Suspense>
+ 
       </section>
-      <section id="contact_form" className=" w-full mt-3">
+      <section id="contact_form" className=" w-full ">
+      <Suspense fallback={<Loader/>}>
 
-     <ContactForm/>
+      <ContactForm/>
+     </Suspense>
+    
       </section>
-      <section id="profit" className=" w-full mt-3">
+      <section id="profit" className=" w-full "> 
+      <Suspense fallback={<Loader/>}>
 
-     <ProfitableSection/>
-      </section>
-      <section id="autoMated" className=" w-full mt-3">
+      <ProfitableSection/>
+    </Suspense>
 
-     <PizzaAutomatSectionUser/>
+   
       </section>
-      
+      <section id="autoMated" className=" w-full ">
+      <Suspense fallback={<Loader/>}>
+
+      <PizzaAutomatSectionUser/>
+     </Suspense>
+   
+      </section>
+
     </div>
   );
 }

@@ -1,18 +1,9 @@
-"use client"
+'use client'
+
 import React from 'react';
 import { motion } from 'framer-motion';
-
-import {
-  Smartphone,
-  BarChart2,
-  Settings2,
-  Database,
-  
-  RefreshCcw,
-  WrenchIcon,
-  AlertCircle
-} from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
+import { Smartphone, BarChart2, Settings2, Database, RefreshCcw, WrenchIcon, AlertCircle, ArrowRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 
 const RemoteControlSection = () => {
@@ -42,11 +33,11 @@ const RemoteControlSection = () => {
   const techFeatures = [
     {
       icon: <RefreshCcw className="w-4 h-4" />,
-      text: "Automatic updates"
+      text: "Automatic software updates"
     },
     {
       icon: <WrenchIcon className="w-4 h-4" />,
-      text: "Remote maintenance"
+      text: "Remote maintenance and troubleshooting"
     },
     {
       icon: <AlertCircle className="w-4 h-4" />,
@@ -55,40 +46,43 @@ const RemoteControlSection = () => {
   ];
 
   return (
-    <section className="py-16 px-4 bg-gradient-to-br from-slate-50 to-blue-50">
-      <div className="max-w-6xl mx-auto">
+    <section className="py-20 bg-white">
+      <div className="container mx-auto px-4">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true,amount:0.4 }}
-          className="text-center mb-12"
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto text-center mb-16"
         >
-          <h2 className="text-3xl font-bold text-gray-900">Simple And Fast Remote Control</h2>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            Simple And Fast Remote Control
+          </h2>
+          <p className="text-lg text-gray-600">
             EV Web dashboard provides complete control of your Pizzamat from anywhere
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="space-y-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {features.map((feature, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true,amount:0.4 }}
+                  viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
+                  className="bg-gray-50 p-6 rounded-xl hover:bg-gray-100 transition-colors duration-200 group"
                 >
-                  <Card className="group hover:shadow-lg transition-all duration-300">
-                    <CardContent className="p-4">
-                      <div className="text-blue-500 mb-3 group-hover:scale-110 transition-transform duration-300">
-                        {feature.icon}
-                      </div>
-                      <h3 className="font-medium text-gray-900 mb-1">{feature.title}</h3>
-                      <p className="text-sm text-gray-600">{feature.description}</p>
-                    </CardContent>
-                  </Card>
+                  <motion.div initial={{ filter:"blur(4px)" }} whileInView={{ filter:"blur(0px)" }} viewport={{once:true, amount:0.2}} transition={{duration:0.3, delay: index * 0.1}} className="text-orange-500 mb-4 group-hover:scale-110 transition-all">
+                    {feature.icon}
+                  </motion.div>
+                  <motion.h3  initial={{ filter:"blur(4px)",opacity:0 }} whileInView={{ filter:"blur(0px)",opacity:1 }} viewport={{once:true, amount:0.2}} transition={{duration:0.3, delay: index * 0.1}}  className="font-semibold text-gray-900 mb-2">
+                    {feature.title}
+                  </motion.h3>
+                  <motion.p initial={{ filter:"blur(4px)",opacity:0 }} whileInView={{ filter:"blur(0px)",opacity:1 }} viewport={{once:true, amount:0.2}} transition={{duration:0.3, delay: index * 0.1}} className="text-sm text-gray-600">
+                    {feature.description}
+                  </motion.p>
                 </motion.div>
               ))}
             </div>
@@ -96,34 +90,47 @@ const RemoteControlSection = () => {
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              viewport={{ once: true,amount:0.4 }}
-              className="bg-white p-6 rounded-xl shadow-md"
+              viewport={{ once: true }}
+              className="bg-gray-50 p-6 rounded-xl"
             >
-              <h3 className="font-medium text-gray-900 mb-4">Technical Capabilities</h3>
-              <div className="space-y-3">
+              <h3 className="font-semibold text-gray-900 mb-4">
+                Technical Support Features
+              </h3>
+              <div className="space-y-4">
                 {techFeatures.map((feature, index) => (
-                  <div key={index} className="flex items-center space-x-3 text-gray-600">
-                    <div className="text-blue-500">{feature.icon}</div>
+                  <motion.div 
+                    key={index} 
+                    className="flex items-center space-x-3 text-gray-600 hover:text-gray-900 transition-colors duration-200 group"
+                    initial={{ filter:"blur(4px)",opacity:0 }} whileInView={{ filter:"blur(0px)",opacity:1 }} viewport={{once:true, amount:0.2}} transition={{duration:0.3, delay: index * 0.1}}
+                  >
+                    <motion.div initial={{ filter:"blur(4px)",opacity:0 }} whileInView={{ filter:"blur(0px)",opacity:1 }} viewport={{once:true, amount:0.2}} transition={{duration:0.3, delay: index * 0.1}} className="text-orange-500 group-hover:scale-110 transition-all">{feature.icon}</motion.div>
                     <span className="text-sm">{feature.text}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
+              <Button 
+                variant="ghost" 
+                className="w-full mt-6 text-orange-500 hover:text-orange-600 hover:bg-orange-50"
+              >
+                Learn More About Support
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
             </motion.div>
           </div>
 
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true,amount:0.4 }}
-            className="relative"
+            viewport={{ once: true }}
+            className="relative aspect-square"
           >
-            <div className="absolute -inset-4 bg-gradient-to-r from-blue-100 to-purple-100 rounded-3xl blur-2xl opacity-30" />
             <Image
               src="/pizzam.png"
-              alt="Pizzamat Machine"
-              className="relative rounded-2xl shadow-2xl w-full object-cover"
-              width={800}
-              height={800}
+              alt="Pizzamat Machine Interface"
+              className="rounded-2xl shadow-lg object-cover"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority
             />
           </motion.div>
         </div>
@@ -133,3 +140,4 @@ const RemoteControlSection = () => {
 };
 
 export default RemoteControlSection;
+

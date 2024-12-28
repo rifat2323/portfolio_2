@@ -6,12 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
 const ProfitableSection = () => {
-  const fadeIn = {
-    initial: { opacity: 0, y: 20 },
-    whileInView: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 },
-    viewport:{ once: true,amount:0.4 }
-  };
+ 
 
   return (
     <div className="w-full min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 py-16 px-4">
@@ -25,21 +20,21 @@ const ProfitableSection = () => {
         <div className="text-center mb-16">
           <motion.h2 
             className="text-4xl font-bold text-slate-800 mb-4"
-            {...fadeIn}
+            initial={{ filter:"blur(4px)" }} whileInView={{ filter:"blur(0px)" }} viewport={{once:true, amount:0.2}} transition={{duration:0.3}}
           >
             Profitable Investment
           </motion.h2>
           <motion.p 
             className="text-slate-600 max-w-2xl mx-auto"
-            {...fadeIn}
-            transition={{ delay: 0.2 }}
+            initial={{ filter:"blur(4px)" }} whileInView={{ filter:"blur(0px)" }} viewport={{once:true, amount:0.2}} transition={{duration:0.3}}
+          
           >
             Turn your space into a profitable venture with our automated pizza solution
           </motion.p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <motion.div {...fadeIn} transition={{ delay: 0.3 }}>
+          <motion.div initial={{ filter:"blur(4px)" }} whileInView={{ filter:"blur(0px)" }} viewport={{once:true, amount:0.2}} transition={{duration:0.3}} >
             <Card className="h-full hover:shadow-lg transition-shadow">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
@@ -55,7 +50,7 @@ const ProfitableSection = () => {
             </Card>
           </motion.div>
 
-          <motion.div {...fadeIn} transition={{ delay: 0.4 }}>
+          <motion.div initial={{ filter:"blur(4px)" }} whileInView={{ filter:"blur(0px)" }} viewport={{once:true, amount:0.2}} transition={{duration:0.3}}>
             <Card className="h-full hover:shadow-lg transition-shadow">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
@@ -71,7 +66,7 @@ const ProfitableSection = () => {
             </Card>
           </motion.div>
 
-          <motion.div {...fadeIn} transition={{ delay: 0.5 }}>
+          <motion.div initial={{ filter:"blur(4px)" }} whileInView={{ filter:"blur(0px)" }} viewport={{once:true, amount:0.2}} transition={{duration:0.3}}>
             <Card className="h-full hover:shadow-lg transition-shadow">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">

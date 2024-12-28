@@ -1,14 +1,8 @@
-"use client"
+'use client'
+
 import React from 'react';
 import { motion } from 'framer-motion';
-import {
-  Banknote,
-  CreditCard,
-  Bitcoin,
-  Wallet,
-  ChevronRight
-} from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
+import { Banknote, CreditCard, Bitcoin, Wallet } from 'lucide-react';
 
 const PaymentMethodsSection = () => {
   const paymentMethods = [
@@ -16,70 +10,72 @@ const PaymentMethodsSection = () => {
       icon: <Banknote className="w-6 h-6" />,
       title: "Cash",
       description: "Coins and banknotes accepted",
-      color: "bg-green-50",
-      textColor: "text-green-600"
     },
     {
       icon: <CreditCard className="w-6 h-6" />,
       title: "Cards",
       description: "Eurocard, Mastercard and Visa",
-      color: "bg-blue-50",
-      textColor: "text-blue-600"
     },
     {
       icon: <Wallet className="w-6 h-6" />,
       title: "Contactless",
       description: "Quick tap-to-pay options",
-      color: "bg-purple-50",
-      textColor: "text-purple-600"
     },
     {
       icon: <Bitcoin className="w-6 h-6" />,
       title: "Crypto",
       description: "Bitcoin and other cryptocurrencies",
-      color: "bg-orange-50",
-      textColor: "text-orange-600"
     }
   ];
 
   return (
-    <section className="py-16 px-4 bg-gradient-to-br from-neutral-50 to-orange-50">
-      <div className="max-w-6xl mx-auto">
+    <section className="py-20 bg-white">
+      <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="text-center mb-12"
+          viewport={{ once: true }}
+          className="max-w-2xl mx-auto text-center mb-16"
         >
-          <h2 className="text-3xl font-bold text-gray-900">Payment Methods</h2>
-          <p className="mt-4 text-gray-600">
-            Multiple payment options for your convenience
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            Payment Methods
+          </h2>
+          <p className="text-lg text-gray-600">
+            Choose your preferred way to pay
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
           {paymentMethods.map((method, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
+            
+              className="group relative bg-gray-50 rounded-xl p-6 hover:bg-white hover:shadow-lg transition-all duration-300"
             >
-              <Card className={`group hover:shadow-lg transition-all duration-300 ${method.color}`}>
-                <CardContent className="p-6">
-                  <div className={`${method.textColor} mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    {method.icon}
-                  </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">{method.title}</h3>
-                  <p className="text-sm text-gray-600">{method.description}</p>
-                  <ChevronRight className={`w-5 h-5 mt-4 ${method.textColor} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-                </CardContent>
-              </Card>
-            </motion.div>
+              <div className="absolute inset-0 bg-gradient-to-b from-orange-500/5 to-transparent rounded-xl transition-opacity duration-300 opacity-0 group-hover:opacity-100" />
+              <div className="relative">
+                <motion.div initial={{ filter:"blur(4px)" }} whileInView={{ filter:"blur(0px)" }} viewport={{once:true, amount:0.2}} transition={{duration:0.3, delay: index * 0.1}} className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-white shadow-sm mb-4 text-orange-500 group-hover:scale-110 transition-transform duration-300">
+                  {method.icon}
+                </motion.div>
+                <motion.h3 initial={{ filter:"blur(4px)" }} whileInView={{ filter:"blur(0px)" }} viewport={{once:true, amount:0.2}} transition={{duration:0.3, delay: index * 0.1}} className="font-semibold text-gray-900 mb-2">
+                  {method.title}
+                </motion.h3>
+                <motion.p  initial={{ filter:"blur(4px)" }} whileInView={{ filter:"blur(0px)" }} viewport={{once:true, amount:0.2}} transition={{duration:0.3, delay: index * 0.1}} className="text-sm text-gray-600">
+                  {method.description}
+                </motion.p>
+              </div>
+            </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
 };
 
 export default PaymentMethodsSection;
+
